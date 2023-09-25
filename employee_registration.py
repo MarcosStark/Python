@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #exercise 01 @Marcos Augusto
-import math
 
 funcionario = {"nome": "", "cpf": "", "funcao": "", "remuneracao": int, "carga_horaria": ""}
 event = {"nome": "", "tipo": ""}
@@ -33,6 +32,10 @@ while op != "sim":
     if lancamento["funcionario"] == funcionario["nome"] and event["tipo"] == "desconto":
       if event["nome"] == "falta":
          funcionario["remuneracao"] = funcionario["remuneracao"] - lancamento["valor"]
+
+    if lancamento["funcionario"] == funcionario["nome"] and event["tipo"] == "vencimento":
+      if event["nome"] == "bonus":
+         funcionario["remuneracao"] = funcionario["remuneracao"] + lancamento["valor"]
 
     print(funcionario)
     op  = input("Deseja encerrar? ")
