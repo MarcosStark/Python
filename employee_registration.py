@@ -29,14 +29,15 @@ while op != "sim":
       release["event"] = input("Evento: ")
       release["value"] = float(input("Valor R$ "))
 
-    if release["employee"] == employee["name"] and event["type"] == "desconto" and event["name"] == "falta":
-      employee["payment"] = employee["payment"] - release["value"]
+      if release["employee"] == employee["name"] and event["type"] == "desconto" and event["name"] == "falta":
+        employee["payment"] = employee["payment"] - release["value"]
 
-    elif release["employee"] == employee["name"] and event["type"] == "vencimento" and event["name"] == "bonus":
-      employee["payment"] = employee["payment"] + release["value"]
-    
+      elif release["employee"] == employee["name"] and event["type"] == "vencimento" and event["name"] == "bonus":
+        employee["payment"] = employee["payment"] + release["value"]
+      
+      else:
+        print("Lançamento inválido!")
+
     else:
-      print("Evento inválido!")
-
-    print(employee)
-    op  = input("Deseja encerrar? ")
+      print(employee)
+      op  = input("Deseja encerrar? ")
