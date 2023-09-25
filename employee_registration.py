@@ -29,7 +29,7 @@ while op != "sim":
       release["event"] = input("Evento: ")
       release["value"] = float(input("Valor R$ "))
 
-    if release["employee"] == employee["nome"] and event["type"] == "desconto":
+    if release["employee"] == employee["name"] and event["type"] == "desconto":
       if event["name"] == "falta":
          employee["payment"] = employee["payment"] - release["value"]
 
