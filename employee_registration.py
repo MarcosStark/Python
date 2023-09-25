@@ -1,41 +1,41 @@
 # -*- coding: utf-8 -*-
 #exercise 01 @Marcos Augusto
 
-funcionario = {"nome": "", "cpf": "", "funcao": "", "remuneracao": int, "carga_horaria": ""}
-event = {"nome": "", "tipo": ""}
-lancamento = {"funcionario": "", "evento": "", "valor": int}
+employee = {"name": "", "cpf": "", "role": "", "payment": int, "workload": ""}
+event = {"name": "", "type": ""}
+release = {"employee": "", "event": "", "value": int}
 
 op = ""
 
 while op != "sim":
-    funcionario["nome"] = input("Nome do funcionário: ")
-    funcionario["cpf"] = input("CPF: ")
-    funcionario["funcao"] = input("Função: ")
-    funcionario["remuneracao"] = float(input("Remuneração: "))
-    funcionario["carga_horaria"] = input("Carga horária: ")
+    employee["name"] = input("Nome do funcionário: ")
+    employee["cpf"] = input("CPF: ")
+    employee["role"] = input("Função: ")
+    employee["payment"] = float(input("Remuneração: "))
+    employee["workload"] = input("Carga horária: ")
 
-    print(funcionario)
+    print(employee)
 
     eventop = input("Adicionar um evento? ")
 
     if eventop == "sim":
-      event["nome"] = input("Nome do evento: ")
-      event["tipo"] = input("Tipo do evento: ")
+      event["name"] = input("Nome do evento: ")
+      event["type"] = input("Tipo do evento: ")
 
     lancop = input("Adicionar um lançamento? ")
 
     if lancop == "sim":
-      lancamento["funcionario"] = input("Funcionário: ")
-      lancamento["evento"] = input("Evento: ")
-      lancamento["valor"] = float(input("Valor R$ "))
+      release["employee"] = input("Funcionário: ")
+      release["event"] = input("Evento: ")
+      release["value"] = float(input("Valor R$ "))
 
-    if lancamento["funcionario"] == funcionario["nome"] and event["tipo"] == "desconto":
-      if event["nome"] == "falta":
-         funcionario["remuneracao"] = funcionario["remuneracao"] - lancamento["valor"]
+    if release["employee"] == employee["nome"] and event["type"] == "desconto":
+      if event["name"] == "falta":
+         employee["payment"] = employee["payment"] - release["value"]
 
-    if lancamento["funcionario"] == funcionario["nome"] and event["tipo"] == "vencimento":
-      if event["nome"] == "bonus":
-         funcionario["remuneracao"] = funcionario["remuneracao"] + lancamento["valor"]
+    if release["employee"] == employee["name"] and event["type"] == "vencimento":
+      if event["name"] == "bonus":
+         employee["payment"] = employee["payment"] + release["value"]
 
-    print(funcionario)
+    print(employee)
     op  = input("Deseja encerrar? ")
