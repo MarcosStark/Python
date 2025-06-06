@@ -8,9 +8,9 @@ list1 = [1, 2, 3, 4, 5]
 double_value = map(double, list1)
 
 #Retorno sem formato de lista
-"""for i in double_value:
-    print(i)"""
+for i in double_value:
+    print(i)
 
 #Ou retorno direto como lista
-double_value = list(double_value)
-print(double_value)
+"""double_value = list(double_value)
+print(double_value)"""
