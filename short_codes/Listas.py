@@ -19,3 +19,6 @@ print(list1)"""
 
 #Para apagar a lista inteira
 """del list1[:]"""
+
+#Para contar caracteres
+print(len(list1[2]))
