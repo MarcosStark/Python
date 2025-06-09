@@ -1,16 +1,42 @@
 alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-key = ""
-input_value = ""
 
-while input_value != "enviar":
-    input_value = input("Digite a letra: ")
+def encript():
+    msg_encripted = ""
+    print("Mensagem a encriptar:")
+    msg = input("Mensagem: ")
 
-    if input_value != "enviar":
-        key = str(key) + alphabet[alphabet.index(input_value) - 3]
+    for i in msg:
+        msg_encripted = str(msg_encripted) + alphabet[alphabet.index(i) + 3]
+    print(msg_encripted, end="\n")
+
+    print("Deseja encriptar outra mensagem?")
+    option = input("R: ")
+    if option == "sim":
+        encript()
     else:
-        for i in key:
-            print(i, end="")
+        print("Deseja desencriptar uma mensagem?")
+        option2 = input("R: ")
+        if option2 == "sim":
+            uncript()
+        else:
+            pass
 
 
-    
+def uncript():
+    msg_encripted = ""
+    print("Mensagem a desincriptar:")
+    msg = input("Mensagem: ")
 
+    for i in msg:
+        msg_encripted = str(msg_encripted) + alphabet[alphabet.index(i) - 3]
+    print(msg_encripted, end="\n")
+
+print("Deseja encriptar ou desencriptar uma mensagem? ")
+r = input("R: ")
+
+if r == "encriptar":
+    encript()
+elif r == "desencriptar":
+    uncript()
+else:
+    print("Opção inválida")
