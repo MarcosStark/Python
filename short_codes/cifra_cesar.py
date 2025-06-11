@@ -1,67 +1,64 @@
-# Define a list representing the English alphabet in uppercase.
+# Define o alfabeto para uso na encriptação e desencriptação.
 alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
-# Define the encryption function.
+# Função para criptografar uma mensagem.
 def encrypt():
-    # Initialize an empty string to store the encrypted message.
     msg_encrypted = ""
-    # Prompt the user to enter the message to be encrypted.
-    print("Mensagem a encriptar:")
+    print("Mensagem a criptografar:")
     msg = input("Mensagem: ")
 
-    # Iterate through each character in the input message.
+    # Percorre cada caractere da mensagem e o encripta.
     for i in msg:
-        # Find the index of the current character in the alphabet list.
-        # Add 3 to the index to shift the character.
-        # Append the shifted character to the encrypted message string.
+        # Adiciona 3 ao índice do caractere no alfabeto (cifra de César).
         msg_encrypted = str(msg_encrypted) + alphabet[alphabet.index(i) + 3]
-    # Print the encrypted message, followed by a new line.
     print(msg_encrypted, end="\n")
 
-    # Ask the user if they want to encrypt another message.
-    print("Deseja encriptar outra mensagem?")
+    # Oferece a opção de criptografar outra mensagem ou ir para a descriptografia.
+    print("Deseja criptografar outra mensagem?")
     option = input("R: ")
-    # If the user chooses "sim" (yes), call the encrypt function recursively.
     if option == "sim":
         encrypt()
-    # Otherwise, ask the user if they want to decrypt a message.
     else:
-        print("Deseja desencriptar uma mensagem?")
+        print("Deseja descriptografar uma mensagem?")
         option2 = input("R: ")
-        # If the user chooses "sim" (yes), call the decrypt function.
         if option2 == "sim":
             decrypt()
-        # Otherwise, do nothing (pass).
         else:
             pass
 
-# Define the decryption function.
+# Função para descriptografar uma mensagem.
 def decrypt():
-    # Initialize an empty string to store the decrypted message.
     msg_encrypted = ""
-    # Prompt the user to enter the message to be decrypted.
-    print("Mensagem a desincriptar:")
+    print("Mensagem a descriptografar:")
     msg = input("Mensagem: ")
 
-    # Iterate through each character in the input message.
+    # Percorre cada caractere da mensagem e o desencripta.
     for i in msg:
-        # Find the index of the current character in the alphabet list.
-        # Subtract 3 from the index to shift the character back.
-        # Append the shifted character to the decrypted message string.
+        # Subtrai 3 do índice do caractere no alfabeto para reverter a cifra.
         msg_encrypted = str(msg_encrypted) + alphabet[alphabet.index(i) - 3]
-    # Print the decrypted message, followed by a new line.
     print(msg_encrypted, end="\n")
 
-# Ask the user whether they want to encrypt or decrypt a message.
-print("Deseja encriptar ou desencriptar uma mensagem? ")
+    # Oferece a opção de descriptografar outra mensagem ou ir para a criptografia.
+    print("Deseja descriptografar outra mensagem?")
+    option = input("R: ")
+    if option == "sim":
+        encrypt()
+    else:
+        print("Deseja criptografar uma mensagem?")
+        option2 = input("R: ")
+        if option2 == "sim":
+            encrypt()
+        else:
+            pass
+
+# Ponto de entrada do programa: pergunta ao usuário o que deseja fazer.
+print("Deseja criptografar ou descriptografar uma mensagem? ")
 r = input("R: ")
 
-# If the user chooses "encriptar" (encrypt), call the encrypt function.
-if r == "encriptar":
+# Chama a função apropriada com base na escolha do usuário.
+if r == "criptografar":
     encrypt()
-# If the user chooses "desencriptar" (decrypt), call the decrypt function.
-elif r == "desencriptar":
+elif r == "descriptografar":
     decrypt()
-# If the user enters an invalid option, print an error message.
 else:
     print("Opção inválida")
