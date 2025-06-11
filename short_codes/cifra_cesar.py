@@ -1,42 +1,42 @@
 alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
-def encript():
-    msg_encripted = ""
+def encrypt():
+    msg_encrypted = ""
     print("Mensagem a encriptar:")
     msg = input("Mensagem: ")
 
     for i in msg:
-        msg_encripted = str(msg_encripted) + alphabet[alphabet.index(i) + 3]
-    print(msg_encripted, end="\n")
+        msg_encrypted = str(msg_encrypted) + alphabet[alphabet.index(i) + 3]
+    print(msg_encrypted, end="\n")
 
     print("Deseja encriptar outra mensagem?")
     option = input("R: ")
     if option == "sim":
-        encript()
+        encrypt()
     else:
         print("Deseja desencriptar uma mensagem?")
         option2 = input("R: ")
         if option2 == "sim":
-            uncript()
+            decrypt()
         else:
             pass
 
 
-def uncript():
-    msg_encripted = ""
+def decrypt():
+    msg_encrypted = ""
     print("Mensagem a desincriptar:")
     msg = input("Mensagem: ")
 
     for i in msg:
-        msg_encripted = str(msg_encripted) + alphabet[alphabet.index(i) - 3]
-    print(msg_encripted, end="\n")
+        msg_encrypted = str(msg_encrypted) + alphabet[alphabet.index(i) - 3]
+    print(msg_encrypted, end="\n")
 
 print("Deseja encriptar ou desencriptar uma mensagem? ")
 r = input("R: ")
 
 if r == "encriptar":
-    encript()
+    encrypt()
 elif r == "desencriptar":
-    uncript()
+    decrypt()
 else:
     print("Opção inválida")
