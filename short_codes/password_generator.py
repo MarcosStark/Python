@@ -1,5 +1,11 @@
-import random
+import secrets
+import string
 
-#Método randint: Gera um número aletório.
+def password_generator(length = 15):
+    alphanumeric_characters = string.ascii_letters + string.digits
+    key = ''.join(secrets.choice(alphanumeric_characters) for i in range(length))
+    return key
 
-number = random.randint(0, 100)
+key  = password_generator()
+print({key})
+
