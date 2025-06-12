@@ -6,7 +6,7 @@ b = 3
 c = 0
 
 #Encontrando o delta da equação
-delta = (((b**2)-(4*a)*c))
+delta = (((pow(b, 2))-(4*a)*c))
 print("Delta: " + str(delta))
 
 #Encontrando x' e x''
