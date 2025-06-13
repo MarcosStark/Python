@@ -24,9 +24,23 @@ msg2 = "O criador é \'Marcos Augusto\'." #Permite adicionar asppas.
 print(msg2)
 
 #Tabulando
-msg3 = "Nome:\tMarcos Augusto\nIdade:\t26\nCidade:\tAracaju\nEstado:\tSergipe" #Retorna as informações em linhas e colunas.
+msg3 = f"Nome:\tMarcos Augusto\nIdade:\t26\nCidade:\tAracaju\nEstado:\tSergipe\nSalário R$\t{1512.5368:.2f}" #Retorna as informações em linhas e colunas, com aredondamento do salário para duas casas decimais.
 print(msg3)
 
 #Caracteres unicode. Existe uma tabela com oos códigos dos carcteres unicode.
 msg4 = "Coração: \u2764" #Retorna o emoji de coração.
 print(msg4)
+
+#Convertendo a entrada para outras tipos.
+age1 = int(input("Informe sua idade: "))
+age2 = float(input("Informe sua idade: "))
+print(type(age1))
+print(type(age2))
+
+#Recebendo múltiplas informações na mesma entrada.
+data = input("Informe seu nome, idade e profissão: ").split()
+name = data[0].upper()
+age3 = data[1]
+occupation = data[2]
+
+print(f"Meu nome é {name}, tenho {age3} anos e sou {occupation}.")
