@@ -12,6 +12,7 @@ print(msg.strip()) #Elimina espaços desnecessários.
 print(msg.replace("Augusto", "Menezes")) #Substitui o texto ou letra informado por outro também informado.
 print(msg.split()) #Separa as palavras, retornando array.
 print(f"Meu nome é {name1} {name2}.") #Utiliza a varável direto na frase, por meio do método f-string.
+print(msg.find("c")) #Retorna a posiç˜ao da letra c.
 
 #Sequências de escape
 msg2 = "O criador é \nMarcos Augusto." #Quebra a linha.
@@ -39,8 +40,8 @@ print(type(age2))
 
 #Recebendo múltiplas informações na mesma entrada.
 data = input("Informe seu nome, idade e profissão: ").split()
-name = data[0].upper()
+name = data[0].capitalize()
 age3 = data[1]
-occupation = data[2]
+occupation = data[2].capitalize() #Altera a primeira letra para maiusculo.
 
 print(f"Meu nome é {name}, tenho {age3} anos e sou {occupation}.")
