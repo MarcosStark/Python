@@ -8,4 +8,5 @@ print(math.pow(3, 2)) #retorna a exponenciação.
 
 print(math.sqrt(9)) #retorna a raíz quadrada.
 
+print(math.factorial(4))
 #Para mais, consultar documentação.
