@@ -22,3 +22,5 @@ print(list1)"""
 
 #Para contar caracteres
 print(len(list1[2]))
+
+#Usar Tuple quando os itens nao serao alterados, ela consome menos memoria e retorna mais rapido.
