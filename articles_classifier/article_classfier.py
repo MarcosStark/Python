@@ -26,7 +26,7 @@ def articles_informations():
     methodology = input("Informe a metodologia do artigo: ")
     results = input("Informe os resultados do artigo: ")
     conclusions = input("Informe os conclusões do artigo: ")
-    key_excerpts = input("Informe os trechos mais importantes que você destacou, sempre citando a página(Ex: IA generativa, pag 10):")
+    key_excerpts = input("Informe os trechos mais importantes que você destacou, sempre citando a página(Ex: IA generativa. Pag 10):")
     observations = input("Informe as observações do artigo: ")
 
     with open(file_name, "a", newline="", encoding="utf-8") as csv_file:
