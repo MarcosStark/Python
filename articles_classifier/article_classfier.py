@@ -12,28 +12,31 @@ class Article:
     def to_csv_row(self):
         return [self.title, self.author, self.year, self.journal]
 
-articles = []
-
 #Nome do rquivo CSV
-
 file_name = "articles.csv"
-with open(file_name, "a", newline="", encoding="utf-8") as csv_file:
-    writer = csv.writer(csv_file)
-
-    #Cabeçalho do artigo
-    writer.writerow(["Title", "Author", "Year", "Journal"])
-
-    """#Escrever os dados de cada objeto.
-    for article in articles:
-        writer.writerow(article.to_csv_row())"""
 
 def articles_informations():
     title = input("Informe o título do artigo: ")
     author = input("Informe o autor do artigo: ")
     year = input("Informe o ano do artigo: ")
     journal = input("Informe o journal do artigo: ")
-    writer.writerow([title, author, year, journal])
+
+    with open(file_name, "a", newline="", encoding="utf-8") as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow(["Title", "Author", "Year", "Journal"])#Cabeçalho do artigo
+        writer.writerow([title, author, year, journal])
+
+    print("Informações salvas com sucesso!\n")
+
+    awnser2 = input("Deseja salvar outro artigo? ").lower()
+    articles_informations() if awnser2 == "sim" or awnser2 == "s" else None
 
 
 
-print("Exportados com sucesso!")
+
+
+#Entrada do usuário
+print("Bem vindo(a) ao classificador de artigos")
+awnser1 = input("Deseja salvar informações de um artigo? ").lower()
+articles_informations() if awnser1 == "sim" or awnser1 == "s" else None
+
