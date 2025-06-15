@@ -29,14 +29,14 @@ def articles_informations():
     print("Informações salvas com sucesso!\n")
 
     awnser2 = input("Deseja salvar outro artigo? ").lower()
-    articles_informations() if awnser2 == "sim" or awnser2 == "s" else None
+    articles_informations() if awnser2 == "sim" or awnser2 == "s" else print("Volte sempre que precisar!")
 
 
 
 
 
 #Entrada do usuário
-print("Bem vindo(a) ao classificador de artigos")
+print("Bem vindo(a) ao classificador de artigos.")
 awnser1 = input("Deseja salvar informações de um artigo? ").lower()
-articles_informations() if awnser1 == "sim" or awnser1 == "s" else None
+articles_informations() if awnser1 == "sim" or awnser1 == "s" else print("Volte sempre que precisar!")
 
