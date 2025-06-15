@@ -2,11 +2,17 @@
 import csv
 
 class Article:
-    def __init__(self,title,author,year,journal):
+    def __init__(self,title,author,year,journal,objective,methodology,results,conclusions,*key_excerpts,observations):
         self.title = title
         self.author = author
         self.year = year
         self.journal = journal
+        self.objective = objective
+        self.methodology = methodology
+        self.results = results
+        self.conclusions = conclusions
+        self.key_excerpts = key_excerpts
+        self.observations = observations
 
 #Nome do rquivo CSV
 file_name = "articles.csv"
@@ -16,6 +22,12 @@ def articles_informations():
     author = input("Informe o autor do artigo: ")
     year = input("Informe o ano do artigo: ")
     journal = input("Informe o journal do artigo: ")
+    objective = input("Informe o objetivo do artigo: ")
+    methodology = input("Informe a metodologia do artigo: ")
+    results = input("Informe os resultados do artigo: ")
+    conclusions = input("Informe os conclusões do artigo: ")
+    key_excerpts = input("Informe os trechos mais importantes que você destacou, sempre citando a página(Ex: IA generativa, pag 10):")
+    observations = input("Informe as observações do artigo: ")
 
     with open(file_name, "a", newline="", encoding="utf-8") as csv_file:
         writer = csv.writer(csv_file)
