@@ -8,10 +8,6 @@ class Article:
         self.year = year
         self.journal = journal
 
-#Metodo para retornar os dados do objeto em um formato de lista para o CSV
-    def to_csv_row(self):
-        return [self.title, self.author, self.year, self.journal]
-
 #Nome do rquivo CSV
 file_name = "articles.csv"
 
