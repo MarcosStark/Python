@@ -31,8 +31,8 @@ def articles_informations():
 
     with open(file_name, "a", newline="", encoding="utf-8") as csv_file:
         writer = csv.writer(csv_file)
-        writer.writerow(["Title", "Author", "Year", "Journal"])#Cabeçalho do artigo
-        writer.writerow([title, author, year, journal])
+        writer.writerow(["Title", "Author", "Year", "Journal", "Objective", "Methodology", "Results", "Conclusions", "Key Excerpts", "Observations"])#Cabeçalho do artigo
+        writer.writerow([title, author, year, journal, objective, methodology, results, conclusions, key_excerpts, observations])
 
     print("Informações salvas com sucesso!\n")
 
