@@ -1,0 +1,7 @@
+Inteligência Artificial (IA) é um campo da ciência da computação que se dedica à criação de máquinas que podem pensar, aprender e agir de forma inteligente. Ela abrange diversas subáreas como aprendizado de máquina, processamento de linguagem natural e visão computacional.
+
+Aprendizado de Máquina (Machine Learning) é uma subárea da IA que permite aos sistemas aprender com dados sem serem explicitamente programados. Existem diferentes tipos de aprendizado, incluindo supervisionado, não supervisionado e por reforço.
+
+Processamento de Linguagem Natural (PLN) é uma área da IA que foca na interação entre computadores e linguagem humana. Aplicações de PLN incluem tradução automática, reconhecimento de fala e chatbots.
+
+Grandes Modelos de Linguagem (LLMs) são modelos de IA treinados em grandes volumes de dados textuais para entender, gerar e interagir com a linguagem humana. O Mistral 7B é um exemplo de LLM conhecido por sua eficiência e desempenho.

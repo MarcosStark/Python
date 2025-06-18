@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+opensearch-py
+requests # Necessário para fazer chamadas HTTP diretas ao Ollama

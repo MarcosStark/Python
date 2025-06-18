@@ -1,0 +1,72 @@
+version: '3.8'
+services:
+  opensearch:
+    image: opensearchproject/opensearch:2.13.0
+    container_name: opensearch
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true # IMPORTANTE: APENAS para desenvolvimento local. Nunca use em produção!
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Skdw5324@
+    ports:
+      - "9200:9200" # Porta da API do OpenSearch
+      - "9600:9600" # Porta para o Transport Layer
+    volumes:
+      - opensearch_data:/usr/share/opensearch/data # Persiste os dados do OpenSearch
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - rag_network
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.13.0
+    container_name: opensearch-dashboards
+    ports:
+      - "5601:5601" # Porta da interface web do OpenSearch
+    environment:
+      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
+    networks:
+      - rag_network
+    depends_on:
+      - opensearch # Garante que o OpenSearch inicie antes do Dashboard
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434" # Porta da API do Ollama
+    volumes:
+      - ollama_data:/root/.ollama # Persiste os modelos baixados pelo Ollama
+    networks:
+      - rag_network
+
+  app:
+    build: . # Constrói a imagem Docker a partir do Dockerfile na pasta atual
+    container_name: rag_api
+    ports:
+      - "8000:8000" # Porta da sua API FastAPI
+    environment:
+      # Variáveis de ambiente passadas para o container da sua API
+      - OLLAMA_BASE_URL=http://ollama:11434 # Usa o nome do serviço 'ollama' dentro da rede Docker
+      - OPENSEARCH_HOST=opensearch          # Usa o nome do serviço 'opensearch' dentro da rede Docker
+      - OPENSEARCH_PORT=9200
+    volumes:
+      - ./data:/app/data             # Mapeia sua pasta 'data' para dentro do container
+      - ./main.py:/app/main.py       # Mapeia seu arquivo 'main.py'
+      - ./requirements.txt:/app/requirements.txt # Mapeia seus requisitos
+    networks:
+      - rag_network
+    depends_on:
+      - opensearch # Garante que OpenSearch e Ollama iniciem antes da sua API
+      - ollama
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload # Inicia a API FastAPI
+
+volumes:
+  opensearch_data:
+  ollama_data:
+
+networks:
+  rag_network:
+    driver: bridge # Cria uma rede Docker para os serviços se comunicarem
