@@ -16,3 +16,4 @@ print(result1.symmetric_difference(result2))
 print(result1.difference(result2))
 
 #Consultar documentacao para mais.
+
