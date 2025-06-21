@@ -3,11 +3,9 @@ import math
 def area_calc():
     if data[1] == data[2]:
         calc = (4 * int(data[1]))
-        print(calc)
         return calc
     else:
         calc = int(data[1]) * int(data[2])
-        print(calc)
         return calc
 
 def paint_calc(calc):
